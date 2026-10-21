@@ -1,0 +1,94 @@
+{
+  "name": "palitra",
+  "productName": "Palitra",
+  "version": "0.1.0",
+  "description": "Глобальная командная палитра для Windows, macOS и Linux: макросы, конвертация форматов, поиск файлов и перевод текста без мыши.",
+  "main": "src/main/main.js",
+  "author": "abdulvoris2984",
+  "license": "MIT",
+  "homepage": "https://github.com/abdulvoris2984/palitra",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdulvoris2984/palitra.git"
+  },
+  "keywords": [
+    "command-palette",
+    "launcher",
+    "electron",
+    "productivity",
+    "fuzzy-search",
+    "spotlight",
+    "raycast"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "test": "node --test \"test/*.test.js\"",
+    "lint": "node scripts/check-syntax.js",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^18.0.0"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "io.github.abdulvoris2984.palitra",
+    "productName": "Palitra",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "abdulvoris2984",
+      "repo": "palitra"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Palitra-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Palitra-Portable-${version}.${ext}"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "assets/icon.png",
+      "extendInfo": {
+        "LSUIElement": true
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "assets/icon.png",
+      "maintainer": "abdulvoris2984"
+    }
+  }
+}

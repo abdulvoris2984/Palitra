@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'">
+  <title>Palitra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" id="card" aria-label="Palitra">
+    <div class="search">
+      <span class="search-icon" id="searchIcon" aria-hidden="true"></span>
+      <span class="chip" id="chip" hidden></span>
+      <input id="q" type="text" autocomplete="off" spellcheck="false" autofocus
+             placeholder="Команда, приложение, файл, 2+2, tr текст…  (? — справка)"
+             role="combobox" aria-controls="list" aria-expanded="true">
+      <span class="spinner" id="spinner" hidden></span>
+    </div>
+    <div class="body">
+      <ul class="list" id="list" role="listbox"></ul>
+      <div class="empty" id="empty" hidden>
+        <div class="empty-title">Ничего не найдено</div>
+        <div class="empty-hint">Наберите <kbd>?</kbd> для справки или <kbd>g</kbd> + запрос для поиска в Google</div>
+      </div>
+      <pre class="detail" id="detail" hidden></pre>
+    </div>
+    <footer class="footer">
+      <div class="footer-left">
+        <span class="logo" aria-hidden="true"></span>
+        <span id="status">Palitra</span>
+      </div>
+      <div class="footer-right" id="hints"></div>
+    </footer>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </main>
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
